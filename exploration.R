@@ -1,7 +1,15 @@
+library(text)
 library(reticulate)
 library(tidyverse)
+
+text::textrpp_install()
+reticulate::conda_list()
+text::textrpp_initialize(save_profile = TRUE)
+textEmbed("hello")
+
 py_install("pandas")
 py_install("yfinance")
+py_install("numpy")
 source_python('helpers/helpers.py')
 
 create_graph <- function(name) {
