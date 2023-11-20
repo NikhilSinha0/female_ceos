@@ -63,7 +63,6 @@ def convert_to_pct(frame):
     if len(frame.shape) == 1:
         return frame.apply(lambda x: (x/(frame.iloc[0]) - 1) * 100)
     f = frame.apply(lambda x: x.div(frame.iloc[0]).subtract(1).mul(100), axis=1)
-    print(f.head())
     return f
 
 def collapse_cols_to_avg(frame):
