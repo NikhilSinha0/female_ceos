@@ -1,0 +1,140 @@
+﻿Company,Ticker,CEO,hire date,End Date,YOE,Exec YOE
+United Rentals,URI,Matthew J. Flannery,5/1/2019,Present,-1,-1
+CBRE Group,CBRE,Robert E. Sulentic,12/11/2012,Present,-1,-1
+Charter Communications,CHTR,Christopher L. Winfrey,10/19/2021,Present,-1,-1
+ModivCare,MODV,L. Heath Sampson,10/1/2022,Present,5,21
+Timken,TKR,Richard G. Kyle,1/1/2014,Present,-1,-1
+Patrick Industries,PATK,Andy L. Nemeth,1/1/2020,Present,-1,-1
+Quanta Services,PWR,Earl C. Austin Jr.,9/1/2016,Present,-1,-1
+Match Group,MTCH,Bernard Kim,5/1/2022,Present,0,18
+Post Holdings,POST,Robert V. Vitale,11/1/2014,Present,0,21
+Western Digital,WDC,David V. Goeckeler,3/1/2020,Present,0,8
+AMC Entertainment Holdings,AMC,Adam M. Aron,1/1/2015,Present,13,-1
+Biogen,BIIB,Christopher A. Viehbacher,11/1/2022,Present,6,26
+Bloomin' Brands,BLMN,David J. Deno,4/1/2019,Present,0,25
+Equity Residential,EQR,Mark J. Parrell,9/4/2018,Present,-1,-1
+ConocoPhillips,COP,Ryan M. Lance,5/1/2012,Present,0,10
+Entegris,ENTG,Bertrand Loy,11/1/2012,Present,0,30
+Academy Sports and Outdoors,ASO,Steven P. Lawrence,6/1/2023,Present,2,15
+Coca-Cola,KO,James R. Quincey,12/1/2016,Present,-1,-1
+Herc Holdings,HRI,Lawrence H. Silber,5/1/2016,Present,0,20
+Hawaiian Holdings,HA,Peter R. Ingram,3/1/2018,Present,0,16
+Rocket Companies,RKT,Bill Emerson,6/1/2023,Present,0,21
+Select Medical Holdings,SEM,David S. Chernow,5/1/2016,Present,-1,-1
+Eversource Energy,ES,Joseph R. Nolan Jr.,3/1/2020,Present,0,19
+Stryker,SYK,Kevin A. Lobo,10/1/2012,Present,0,10
+Encore Wire,WIRE,Daniel L. Jones,2/1/2006,Present,0,17
+Boston Properties,BXP,Owen D. Thomas,4/1/2013,Present,-1,-1
+Trimble,TRMB,Robert G. Painter,1/1/2020,Present,0,20
+Lam Research,LRCX,Timothy M. Archer,12/1/2018,Present,-1,-1
+Cintas,CTAS,Todd M. Schneider,7/1/2021,Present,-1,-1
+Freddie Mac,FMCC,Michael J. DeVito,6/1/2021,Present,0,25
+Newmont,NEM,Thomas R. Palmer,10/1/2019,Present,0,8
+Alliance Resource Partners,ARLP,Joseph W. Craft III,8/1/1999,Present,0,25
+Americold Realty Trust,COLD,George F. Chappelle Jr.,11/1/2021,Present,-1,-1
+WESCO International,WCC,John J. Engel,5/1/2011,Present,-1,-1
+Meta Platforms,META,Mark Zuckerberg,1/1/2004,Present,0,0
+Dana,DAN,James K. Kamsickas,12/1/2019,Present,0,12
+Bristol-Myers Squibb,BMY,Giovanni Caforio,5/1/2015,Present,0,31
+Whirlpool,WHR,Marc R. Bitzer,10/1/2016,Present,0,17
+AbbVie,ABBV,Richard A. Gonzalez,1/1/2013,Present,-1,-1
+Cheesecake Factory,CAKE,David M. Overton,1/1/1992,Present,-1,-1
+Fifth Third Bancorp,FITB,Timothy N. Spence,7/1/2022,Present,0,16
+Marriott Vacations Worldwide,VAC,John E. Geller Jr.,1/1/2023,Present,-1,-1
+Waters,WAT,Udit Batra,9/1/2020,Present,10,16
+Global Payments,GPN,Cameron M. Bready,6/1/2023,Present,0,23
+Dollar Tree,DLTR,Richard W. Dreiling,3/1/2022,Present,-1,-1
+Motorola Solutions,MSI,Gregory Q. Brown,1/1/2011,Present,4,15
+Goodyear Tire & Rubber,GT,Richard J. Kramer,4/1/2010,Present,0,10
+Offerpad Solutions,OPAD,Brian Bair,7/1/2015,Present,-1,-1
+Stagwell,STGW,Mark Penn,3/1/2019,Present,-1,-1
+Belden,BDC,Ashish Chand,3/1/2023,Present,-1,-1
+Group 1 Automotive,GPI,Daryl A. Kenningham,1/1/2023,Present,0,25
+Valmont Industries,VMI,Avner M. Applbaum,7/1/2023,Present,0,24
+Designer Brands,DBI,Douglas M. Howe,4/1/2023,Present,0,30
+Starbucks,SBUX,Laxman Narasimhan,10/1/2022,Present,7,22
+Andersons,ANDE,Patrick E. Bowe,1/1/2015,Present,0,23
+Comfort Systems USA,FIX,Brian E. Lane,1/1/2009,Present,-1,-1
+Microchip Technology,MCHP,Ganesh Moorthy,3/1/2021,Present,1,21
+MGM Resorts International,MGM,William J. Hornbuckle,3/1/2020,Present,0,7
+Topgolf Callaway Brands,MODG,Oliver G. Brewer III,3/1/2012,Present,-1,10
+Viatris,VTRS,Scott A. Smith,,,,
+Chipotle Mexican Grill,CMG,Brian R. Niccol,,,,
+Pfizer,PFE,Albert Bourla,,,,
+Plains GP Holdings,PAGP,Wilfred C.W. Chiang,,,,
+WEC Energy Group,WEC,Scott J. Lauber,,,,
+Union Pacific,UNP,Jim Vena,,,,
+Zions Bancorp.,ZION,Harris H. Simmons,,,,
+DISH Network,DISH,W. Erik Carlson,,,,
+Norfolk Southern,NSC,Alan H. Shaw,,,,
+IDEXX Laboratories,IDXX,Jonathan J. Mazelsky,,,,
+Marathon Oil,MRO,Lee M. Tillman,,,,
+Waste Management,WM,James C. Fish Jr.,,,,
+Autodesk,ADSK,Andrew Anagnost,,,,
+American Tower,AMT,Thomas A. Bartlett,,,,
+Magellan Midstream Partners,MMP,Aaron L. Milford,,,,
+Halliburton,HAL,Jeffrey A. Miller,,,,
+CMS Energy,CMS,Garrick J. Rochow,,,,
+Cardinal Health,CAH,Jason Hollar,,,,
+MasTec,MTZ,JosÃ© R. Mas,,,,
+Zebra Technologies,ZBRA,William J. Burns,,,,
+Owens Corning,OC,Brian D. Chambers,,,,
+Advantage Solutions,ADV,David Peacock,,,,
+Genesis Energy,GEL,Grant E. Sims,,,,
+Moody's,MCO,Robert S. Fauber,,,,
+O'Reilly Automotive,ORLY,Gregory D. Johnson,,,,
+TravelCenters of America,,Jonathan M. Pertchik,,,,
+Honeywell International,HON,Vimal Kapur,,,,
+Fleetcor Technologies,FLT,Ronald F. Clarke,,,,
+Conagra Brands,CAG,Sean M. Connolly,,,,
+Omnicom Group,OMC,John D. Wren,,,,
+Wayfair,W,Niraj S. Shah,,,,
+Stewart Information Services,STC,Frederick H. Eppinger,,,,
+Oshkosh,OSK,John C. Pfeifer,,,,
+General Electric,GE,H. Lawrence Culp Jr.,,,,
+PROG Holdings,PRG,Steven A. Michaels,,,,
+Etsy,ETSY,Joshua G. Silverman,,,,
+Xcel Energy,XEL,Robert C. Frenzel,,,,
+Ares Management,ARES,Michael J. Arougheti,,,,
+Knight-Swift Transportation Holdings,KNX,David A. Jackson,,,,
+Xerox Holdings,XRX,Steve J. Bandrowczak,,,,
+Domtar,,Steven M. Henry,,,,
+Big Lots,BIG,Bruce K. Thorn,,,,
+Lennox International,LII,Alok Maskara,,,,
+Avient,AVNT,Robert M. Patterson,,,,
+Diamondback Energy,FANG,Travis D. Stice,,,,
+Hologic,HOLX,Stephen P. MacMillan,,,,
+Popular,BPOP,Ignacio Alvarez,,,,
+Travel + Leisure,TNL,Michael D. Brown,,,,
+Ecolab,ECL,Christophe Beck,,,,
+Keysight Technologies,KEYS,Satish Dhanasekaran,,,,
+AutoNation,AN,Michael M. Manley,,,,
+Sonoco Products,SON,R. Howard Coker,,,,
+Surgery Partners,SGRY,J. Eric Evans,,,,
+Assurant,AIZ,Keith W. Demmings,,,,
+Yum Brands,YUM,David W. Gibbs,,,,
+Aramark,ARMK,John J. Zillmer,,,,
+Performance Food Group,PFGC,George L. Holm,,,,
+Caesars Entertainment,CZR,Thomas R. Reeg,,,,
+Electronic Arts,EA,Andrew Wilson,,,,
+Lithia Motors,LAD,Bryan B. DeBoer,,,,
+Carlyle Group,CG,Harvey M. Schwartz,,,,
+Illinois Tool Works,ITW,E. Scott Santi,,,,
+Service Corp. International,SCI,Thomas L. Ryan,,,,
+ESAB,ESAB,Shyam P. Kambeyanda,,,,
+Petco Health and Wellness,WOOF,Ronald Coughlin Jr.,,,,
+FTI Consulting,FCN,Steven H. Gunby,,,,
+Activision Blizzard,ATVI,Robert A. Kotick,,,,
+Eli Lilly,LLY,David A. Ricks,,,,
+Nucor,NUE,Leon J. Topalian,,,,
+Skechers U.S.A.,SKX,Robert Greenberg,,,,
+OneMain Holdings,OMF,Douglas H. Shulman,,,,
+ABM Industries,ABM,Scott B. Salmirs,,,,
+Huntington Ingalls Industries,HII,Christopher D. Kastner,,,,
+Matador Resources,MTDR,Joseph Wm. Foran,,,,
+Avnet,AVT,Philip R. Gallagher,,,,
+Concentrix,CNXC,Christopher A. Caldwell,,,,
+ChampionX,CHX,Sivasankaran Somasundaram,,,,
+Alpha Metallurgical Resources,AMR,Charles Andrew Eidson,,,,
+Builders FirstSource,BLDR,Dave Rush,,,,
+Ally Financial,ALLY,Jeffrey J. Brown,,,,
