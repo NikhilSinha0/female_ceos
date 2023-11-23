@@ -58,49 +58,46 @@ Comfort Systems USA,FIX,Brian E. Lane,1/1/2009,Present,-1,-1
 Microchip Technology,MCHP,Ganesh Moorthy,3/1/2021,Present,1,21
 MGM Resorts International,MGM,William J. Hornbuckle,3/1/2020,Present,0,7
 Topgolf Callaway Brands,MODG,Oliver G. Brewer III,3/1/2012,Present,-1,10
-Viatris,VTRS,Scott A. Smith,,,,
-Chipotle Mexican Grill,CMG,Brian R. Niccol,,,,
-Pfizer,PFE,Albert Bourla,,,,
-Plains GP Holdings,PAGP,Wilfred C.W. Chiang,,,,
-WEC Energy Group,WEC,Scott J. Lauber,,,,
-Union Pacific,UNP,Jim Vena,,,,
-Zions Bancorp.,ZION,Harris H. Simmons,,,,
-DISH Network,DISH,W. Erik Carlson,,,,
-Norfolk Southern,NSC,Alan H. Shaw,,,,
-IDEXX Laboratories,IDXX,Jonathan J. Mazelsky,,,,
-Marathon Oil,MRO,Lee M. Tillman,,,,
-Waste Management,WM,James C. Fish Jr.,,,,
-Autodesk,ADSK,Andrew Anagnost,,,,
-American Tower,AMT,Thomas A. Bartlett,,,,
-Magellan Midstream Partners,MMP,Aaron L. Milford,,,,
-Halliburton,HAL,Jeffrey A. Miller,,,,
-CMS Energy,CMS,Garrick J. Rochow,,,,
-Cardinal Health,CAH,Jason Hollar,,,,
-MasTec,MTZ,JosÃ© R. Mas,,,,
-Zebra Technologies,ZBRA,William J. Burns,,,,
-Owens Corning,OC,Brian D. Chambers,,,,
-Advantage Solutions,ADV,David Peacock,,,,
-Genesis Energy,GEL,Grant E. Sims,,,,
-Moody's,MCO,Robert S. Fauber,,,,
-O'Reilly Automotive,ORLY,Gregory D. Johnson,,,,
-TravelCenters of America,,Jonathan M. Pertchik,,,,
-Honeywell International,HON,Vimal Kapur,,,,
-Fleetcor Technologies,FLT,Ronald F. Clarke,,,,
-Conagra Brands,CAG,Sean M. Connolly,,,,
-Omnicom Group,OMC,John D. Wren,,,,
-Wayfair,W,Niraj S. Shah,,,,
-Stewart Information Services,STC,Frederick H. Eppinger,,,,
-Oshkosh,OSK,John C. Pfeifer,,,,
-General Electric,GE,H. Lawrence Culp Jr.,,,,
-PROG Holdings,PRG,Steven A. Michaels,,,,
-Etsy,ETSY,Joshua G. Silverman,,,,
-Xcel Energy,XEL,Robert C. Frenzel,,,,
-Ares Management,ARES,Michael J. Arougheti,,,,
-Knight-Swift Transportation Holdings,KNX,David A. Jackson,,,,
-Xerox Holdings,XRX,Steve J. Bandrowczak,,,,
-Domtar,,Steven M. Henry,,,,
-Big Lots,BIG,Bruce K. Thorn,,,,
-Lennox International,LII,Alok Maskara,,,,
+Viatris,VTRS,Scott A. Smith,4/1/2023,Present,0,-1
+Chipotle Mexican Grill,CMG,Brian R. Niccol,2/1/2018,Present,3,18
+Pfizer,PFE,Albert Bourla,1/1/2019,Present,0,15
+Plains GP Holdings,PAGP,Wilfred C.W. Chiang,10/1/2018,Present,-1,-1
+WEC Energy Group,WEC,Scott J. Lauber,6/1/2020,Present,-1,-1
+Union Pacific,UNP,Jim Vena,8/1/2023,Present,-1,-1
+Zions Bancorp.,ZION,Harris H. Simmons,1/1/1990,Present,0,-1
+DISH Network,DISH,W. Erik Carlson,12/1/2017,Present,0,18
+Norfolk Southern,NSC,Alan H. Shaw,1/1/2021,Present,-1,-1
+IDEXX Laboratories,IDXX,Jonathan J. Mazelsky,10/1/2019,Present,0,13
+Marathon Oil,MRO,Lee M. Tillman,7/1/2013,Present,-1,-1
+Waste Management,WM,James C. Fish Jr.,11/1/2016,Present,0,30
+Autodesk,ADSK,Andrew Anagnost,6/1/2017,Present,0,17
+Magellan Midstream Partners,MMP,Aaron L. Milford,5/1/2022,Present,-1,-1
+Halliburton,HAL,Jeffrey A. Miller,6/1/2017,Present,0,13
+CMS Energy,CMS,Garrick J. Rochow,12/1/2020,Present,0,10
+Cardinal Health,CAH,Jason Hollar,9/1/2022,Present,0,27
+MasTec,MTZ,JosÃ© R. Mas,4/1/2007,Present,0,6
+Zebra Technologies,ZBRA,William J. Burns,12/1/2002,Present,-1,-1
+Owens Corning,OC,Brian D. Chambers,4/1/2019,Present,0,19
+Advantage Solutions,ADV,David Peacock,1/1/2023,Present,0,-1
+Genesis Energy,GEL,Grant E. Sims,10/1/2023,Present,-1,-1
+Moody's,MCO,Robert S. Fauber,1/1/2021,Present,0,29
+O'Reilly Automotive,ORLY,Gregory D. Johnson,3/1/2022,Present,0,19
+Honeywell International,HON,Vimal Kapur,6/1/2023,Present,0,-1
+Fleetcor Technologies,FLT,Ronald F. Clarke,1/1/2003,Present,-1,-1
+Conagra Brands,CAG,Sean M. Connolly,1/1/2015,Present,3,23
+Omnicom Group,OMC,John D. Wren,1/1/1997,Present,0,25
+Wayfair,W,Niraj S. Shah,3/1/2002,Present,3,7
+Stewart Information Services,STC,Frederick H. Eppinger,9/1/2017,Present,13,26
+Oshkosh,OSK,John C. Pfeifer,4/1/2021,Present,0,27
+General Electric,GE,H. Lawrence Culp Jr.,10/1/2018,Present,13,-1
+PROG Holdings,PRG,Steven A. Michaels,6/1/2020,Present,0,15
+Etsy,ETSY,Joshua G. Silverman,5/1/2017,Present,6,20
+Xcel Energy,XEL,Robert C. Frenzel,9/1/2021,Present,0,19
+Ares Management,ARES,Michael J. Arougheti,1/1/2004,Present,0,0
+Knight-Swift Transportation Holdings,KNX,David A. Jackson,8/1/2021,Present,0,3
+Xerox Holdings,XRX,Steve J. Bandrowczak,9/1/2022,Present,0,35
+Big Lots,BIG,Bruce K. Thorn,9/1/2018,Present,-1,-1
+Lennox International,LII,Alok Maskara,1/1/2022,Present,5,29
 Avient,AVNT,Robert M. Patterson,,,,
 Diamondback Energy,FANG,Travis D. Stice,,,,
 Hologic,HOLX,Stephen P. MacMillan,,,,
