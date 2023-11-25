@@ -21,6 +21,7 @@ py_install("pandas")
 py_install("yfinance")
 py_install("numpy")
 source_python('helpers/helpers.py')
+source_python('prediction.py')
 
 companies <- companies_df
 ```
@@ -109,12 +110,20 @@ create_graph <- function(name) {
     com_aft <- cbind(Day = rownames(com_aft), com_aft)
     rownames(com_aft) <- 1:nrow(com_aft)
 
-    df <- bind_rows(ind_bef, ind_aft, com_bef, com_aft)
+    df <- bind_rows(ind_bef, ind_aft, com_bef, com_aft) |> mutate(time = "Actual")
     df$Day <- as.numeric(as.character(df$Day))
     
     company_name <- companies |> filter(CEO == name) |> pull(Company)
     hiredate <- ceos_df |> filter(Company == company_name) |>
       pull(`hire date (female only)`)
+    
+    fit_and_predict_inference_results <- fit_and_predict_inference_results |>
+      rename(CEO = name)
+    
+    pred_data <- fit_and_predict_inference_results |> filter(CEO == name) |>
+      mutate(time = "Predicted")
+    pred_data$Day <- as.numeric(as.character(pred_data$Day))
+    print(pred_data)
     
     avg_bef <- mean(com_bef$Value)
     avg_aft <- mean(com_aft$Value)
@@ -124,16 +133,18 @@ create_graph <- function(name) {
     sub <- glue("***{name}*** *started as CEO on {hiredate}*")
     capt <- glue("*On average, the company was growing more* ***{status}*** *the hire*")
 
-    ggplot(df, aes(x = Day, y = Value, color = val)) +
+    ggplot(df, aes(x = Day, y = Value, color = val, linetype = time)) +
+      geom_line() +
+      geom_line(data = pred_data) +
       facet_wrap(~factor(status, levels=c("Before", "After"))) +
       scale_color_manual(values = colscheme) +
       labs(color = "",
+           linetype = "",
            title = title,
            subtitle = sub,
            y = "Percent Growth",
            x = "Day",
            caption = capt) +
-      geom_line() +
       theme_bw() +
       theme(text = element_text(family = "rale"),
             plot.subtitle = element_markdown(),
@@ -144,3 +155,4 @@ create_graph <- function(name) {
 
 create_graph("Karen S. Lynch")
 ```
+
