@@ -1,0 +1,146 @@
+```{r}
+library(text)
+library(reticulate)
+library(tidyverse)
+library(ggtext)
+library(showtext)
+library(glue)
+
+font_add_google("Raleway", "rale")
+showtext_auto()
+colscheme <- c("#1c9a89", "#eb5700")
+```
+
+```{r}
+text::textrpp_install()
+reticulate::conda_list()
+text::textrpp_initialize(save_profile = TRUE)
+textEmbed("hello")
+
+py_install("pandas")
+py_install("yfinance")
+py_install("numpy")
+source_python('helpers/helpers.py')
+
+companies <- companies_df
+```
+
+```{r warning = F, message = F}
+growth_status <- function(name) {
+  data <- get_prices_by_ceo_name(name)
+  
+  com_bef <- as.data.frame(data[3]) |>
+        mutate(val = "Company", status = "Before") |>
+        rename(Value = Adj.Close)
+
+  com_aft <- as.data.frame(data[4]) |>
+        mutate(val = "Company", status = "After") |>
+        rename(Value = Adj.Close)
+  
+  avg_bef <- mean(com_bef$Value)
+  avg_aft <- mean(com_aft$Value)
+  status <- ifelse(avg_bef > avg_aft, "Before", "After")
+  return(status)
+}
+
+growth_graph_df <- companies |>
+  filter(FemaleCEO == "yes") |>
+  rowwise() |>
+  mutate(growth = growth_status(CEO))
+
+growth_graph_df <- growth_graph_df |>
+  filter(!is.na(growth)) |>
+  select(Sector, growth) |> ungroup()
+
+stacked_bar <- growth_graph_df |>
+  select(growth, Sector) |>
+  group_by(growth, Sector) |>
+  count()
+
+dot_title <- glue("Is average growth higher <span style='color:{colscheme[2]}'>**before**</span> or <span style='color:{colscheme[1]}'>**after**</span> a female CEO is hired?")
+dot_sub <- "*Comparing growth in the 250 days leading up to the hire of a female CEO vs the 250 days after*"
+  
+ggplot(growth_graph_df, aes(x = Sector, fill = growth)) +
+  coord_flip() +
+  geom_dotplot(dotsize = 0.8, stackratio = 3, stackgroups = TRUE) +
+  scale_fill_manual(values = colscheme) +
+  scale_x_discrete(limits=rev) +
+  labs(title = dot_title, subtitle = dot_sub, y = "Count of Companies") +
+  theme_bw() +
+  theme(panel.grid = element_blank(),
+        axis.title.y = element_blank(),
+        axis.ticks.x = element_blank(),
+        axis.text.x = element_blank(),
+        text = element_text(family = "rale"),
+        plot.title = element_markdown(),
+        plot.subtitle = element_markdown(size = 8),
+        legend.position = "none")
+```
+
+
+```{r growth-graph, message = F, warning = F, error = F}
+create_graph <- function(name) {
+    graph_data <- get_prices_by_ceo_name(name)
+    ind_bef <- as.data.frame(graph_data[1]) |>
+        mutate(val = "Industry Avg", status = "Before") |>
+        rename(Value = industry_avg)
+
+    ind_aft <- as.data.frame(graph_data[2]) |>
+        mutate(val = "Industry Avg", status = "After") |>
+        rename(Value = industry_avg)
+
+    com_bef <- as.data.frame(graph_data[3]) |>
+        mutate(val = "Company", status = "Before") |>
+        rename(Value = Adj.Close)
+
+    com_aft <- as.data.frame(graph_data[4]) |>
+        mutate(val = "Company", status = "After") |>
+        rename(Value = Adj.Close)
+
+    ind_bef <- cbind(Day = rownames(ind_bef), ind_bef)
+    rownames(ind_bef) <- 1:nrow(ind_bef)
+
+    ind_aft <- cbind(Day = rownames(ind_aft), ind_aft)
+    rownames(ind_aft) <- 1:nrow(ind_aft)
+
+    com_bef <- cbind(Day = rownames(com_bef), com_bef)
+    rownames(com_bef) <- 1:nrow(com_bef)
+
+    com_aft <- cbind(Day = rownames(com_aft), com_aft)
+    rownames(com_aft) <- 1:nrow(com_aft)
+
+    df <- bind_rows(ind_bef, ind_aft, com_bef, com_aft)
+    df$Day <- as.numeric(as.character(df$Day))
+    
+    company_name <- companies |> filter(CEO == name) |> pull(Company)
+    hiredate <- ceos_df |> filter(Company == company_name) |>
+      pull(`hire date (female only)`)
+    
+    avg_bef <- mean(com_bef$Value)
+    avg_aft <- mean(com_aft$Value)
+    status <- ifelse(avg_bef > avg_aft, "before", "after")
+    
+    title <- glue("Growth Before & After: **{company_name}**")
+    sub <- glue("***{name}*** *started as CEO on {hiredate}*")
+    capt <- glue("*On average, the company was growing more* ***{status}*** *the hire*")
+
+    ggplot(df, aes(x = Day, y = Value, color = val)) +
+      facet_wrap(~factor(status, levels=c("Before", "After"))) +
+      scale_color_manual(values = colscheme) +
+      labs(color = "",
+           title = title,
+           subtitle = sub,
+           y = "Percent Growth",
+           x = "Day",
+           caption = capt) +
+      geom_line() +
+      theme_bw() +
+      theme(text = element_text(family = "rale"),
+            plot.subtitle = element_markdown(),
+            plot.title = element_markdown(),
+            panel.grid = element_blank(),
+            plot.caption = element_markdown(hjust = 0.5))
+}
+
+create_graph("Karen S. Lynch")
+```
