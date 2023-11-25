@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 import yfinance as yf
 import sys
+import math
 from datetime import datetime, timedelta
 from sklearn.preprocessing import PolynomialFeatures, StandardScaler
 from sklearn.linear_model import LinearRegression
@@ -234,6 +235,17 @@ def score_relative_to_preds(industry_series, company_series, industry_pred_serie
     company_me = np.mean(company_diff)
     
     return (company_me - industry_me)/abs(industry_me)
+
+def get_likelihood(pct):
+    count = 0
+    for _, row in companies_df.iterrows():
+        if row.loc["FemaleCEO"] == "yes":
+            count += 1
+    pct_female_ceos = count/companies_df.shape[0]
+    total = 0
+    for i in range(count):
+        total += math.comb(companies_df.shape[0], i+1)*(pct**(i+1))*((1-pct)**(companies_df.shape[0]-i+1)
+    return total
 
 if __name__ == '__main__':
     # Test
