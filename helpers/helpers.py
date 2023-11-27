@@ -6,6 +6,7 @@ import math
 from datetime import datetime, timedelta
 from sklearn.preprocessing import PolynomialFeatures, StandardScaler
 from sklearn.linear_model import LinearRegression
+from sklearn.ensemble import RandomForestRegressor
 from sklearn.svm import SVR
 from sklearn.model_selection import cross_validate
 
@@ -165,6 +166,41 @@ def fit_and_predict_svm(industry_before, industry_after, company_before, company
     company_pred = fit_svm_pred(company_before_x, company_y, company_after_x)
     return industry_pred, company_pred
 
+def fit_rf_cv(depth, x, y, regularization_factor):
+    reg = RandomForestRegressor(max_depth=depth, ccp_alpha=regularization_factor)
+    scores = cross_validate(reg, x.reshape(-1, 1), y.ravel(), cv=5, scoring=('neg_mean_squared_error'))
+    mses = np.array(scores['test_score'])
+    return np.mean(mses)
+
+def fit_rf_pred(depth, before_x, before_y, after_x):
+    reg = RandomForestRegressor(max_depth=depth)
+    reg.fit(before_x.reshape(-1, 1), before_y.ravel())
+    return reg.predict(after_x.reshape(-1, 1))
+
+def fit_and_predict_rf(industry_before, industry_after, company_before, company_after):
+    depths = [3,4,5,6,7]
+    regularization_factor = 0.05
+    industry_before_x = np.array([int(row) for row in industry_before.index])
+    industry_last_index = int(industry_before.index[-1])
+    industry_after_x = np.array([int(row)+industry_last_index+1 for row in industry_after.index])
+    industry_y = industry_before.to_numpy()
+    industry_means = []
+    company_before_x = np.array([int(row) for row in company_before.index])
+    company_last_index = int(company_before.index[-1])
+    company_after_x = np.array([int(row)+company_last_index+1 for row in company_after.index])
+    company_y = company_before.to_numpy()
+    company_means = []
+    for d in depths:
+        industry_mean = fit_rf_cv(d, industry_before_x, industry_y, regularization_factor)
+        company_mean = fit_rf_cv(d, company_before_x, company_y, regularization_factor)
+        industry_means.append(industry_mean)
+        company_means.append(company_mean)
+    industry_best_deg = depths[np.argmin(np.array(industry_means))]
+    company_best_deg = depths[np.argmin(np.array(company_means))]
+    industry_pred = fit_rf_pred(industry_best_deg, industry_before_x, industry_y, industry_after_x)
+    company_pred = fit_rf_pred(company_best_deg, company_before_x, company_y, company_after_x)
+    return industry_pred, company_pred
+
 def fit_and_predict(industry_before, industry_after, company_before, company_after):
     poly_degrees = [1,2,3,4,5]
     regularization_factor = 1
@@ -243,8 +279,9 @@ def get_likelihood(pct):
             count += 1
     pct_female_ceos = count/companies_df.shape[0]
     total = 0
+    #print(count)
     for i in range(count):
-        total += math.comb(companies_df.shape[0], i+1)*(pct**(i+1))*((1-pct)**(companies_df.shape[0]-i+1)
+        total += math.comb(companies_df.shape[0], i+1)*(pct**(i+1))*((1-pct)**(companies_df.shape[0]-i+1))
     return total
 
 if __name__ == '__main__':
@@ -256,12 +293,14 @@ if __name__ == '__main__':
         a, b, c, d = get_continuous_prices_by_ceo_name(name)
         if not isinstance(a, pd.DataFrame):
             continue
-        industry_preds, company_preds = fit_and_predict(a, b, c, d)
+        industry_preds, company_preds = fit_and_predict_rf(a, b, c, d)
         score = score_relative_to_preds(b, d, industry_preds, company_preds)
         total += 1
         if score > 0:
             pos += 1
         print(f"Positive rate: {pos/total}")
+    print(f"Likelihood: {get_likelihood(pos/total)}")
+
     # a, b, c, d = get_continuous_prices_by_ceo_name("Karen S. Lynch")
     # if not isinstance(a, pd.DataFrame):
     #     sys.exit(1)
