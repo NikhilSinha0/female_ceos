@@ -5,6 +5,7 @@ library(tidyverse)
 library(ggtext)
 library(showtext)
 library(glue)
+library(scales)
 
 font_add_google("Raleway", "rale")
 showtext_auto()
@@ -157,6 +158,8 @@ create_graph("Karen S. Lynch")
 ```
 
 ```{r lilly-chart-remakes}
+options(scipen = 999)
+
 # sector (all companies)
 ggplot(companies) +
   geom_bar(aes(y = Sector), fill = "steelblue", color = "black", width = 0.7) +
@@ -168,13 +171,14 @@ ggplot(companies) +
         text = element_text(family = "rale"),
         plot.title = element_text(face = "bold"))
 
-# sector (female ceos)
-ggplot(companies |> filter(FemaleCEO == "yes")) +
-  geom_bar(aes(y = Sector), fill = "steelblue", color = "black", width = 0.7) +
+# sector (stacked)
+ggplot(companies) +
+  geom_bar(aes(y = Sector, fill = FemaleCEO), color = "black", width = 0.7) +
   scale_y_discrete(limits = rev) +
-  scale_x_continuous(limits = c(0, 10), breaks = seq(0, 10, by = 2)) +
+  scale_x_continuous(limits = c(0, 140), breaks = seq(0, 140, by = 20)) +
+  scale_fill_manual(values = c("steelblue", "pink"), labels = c("Male", "Female")) +
   labs(x = "Number of Companies", y = "", title = "Distribution of Sector",
-       subtitle = "Companies with Female CEOs") +
+       fill = "CEO Gender") +
   theme_bw() +
   theme(panel.grid = element_blank(),
         text = element_text(family = "rale"),
@@ -197,6 +201,21 @@ ggplot(companies |> filter(Number_of_employees <= 100000) |>
         plot.title = element_text(face = "bold"),
         axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 
+# employee count (female ceos)
+ggplot(companies |> filter(FemaleCEO == "yes" & Number_of_employees <= 100000) |>
+         mutate(empcount = as.numeric(as.character(discretize(Number_of_employees, 10000))))) +
+  geom_bar(aes(x = empcount), fill = "steelblue", width = 5000) +
+  scale_x_continuous(breaks = seq(0, 100000, by = 10000)) +
+  labs(x = "Number of Employees (Upper Bound)",
+       y = "Number of Companies",
+       title = "Distribution of Employee Count",
+       subtitle = "Companies with Female CEOs") +
+  theme_bw() +
+  theme(panel.grid = element_blank(),
+        text = element_text(family = "rale"),
+        plot.title = element_text(face = "bold"),
+        axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
 # yoe (female ceos)
 ggplot(ceos_df |> filter(YOE != "-1")) +
   geom_bar(aes(x = YOE), fill = "steelblue", width = 0.5) +
@@ -204,11 +223,13 @@ ggplot(ceos_df |> filter(YOE != "-1")) +
   labs(x = "YOE",
        y = "Number of Companies",
        title = "Distribution of Years of Experience",
-       subtitle = "Companies with Female CEOs") +
+       subtitle = "Companies with Female CEOs",
+       caption = "YOE: Years of experience as a CEO before becoming CEO at current company") +
   theme_bw() +
   theme(panel.grid = element_blank(),
         text = element_text(family = "rale"),
-        plot.title = element_text(face = "bold"))
+        plot.title = element_text(face = "bold"),
+        plot.caption = element_text(hjust = 0.5))
 
 # exec yoe (female ceos)
 ggplot(ceos_df |> filter(`Exec YOE` != "-1")) +
@@ -217,11 +238,13 @@ ggplot(ceos_df |> filter(`Exec YOE` != "-1")) +
   labs(x = "Exec YOE",
        y = "Number of Companies",
        title = "Distribution of Executive Years of Experience",
-       subtitle = "Companies with Female CEOs") +
+       subtitle = "Companies with Female CEOs",
+       caption = "Exec YOE: Years of experience in an executive position before becoming CEO at current company") +
   theme_bw() +
   theme(panel.grid = element_blank(),
         text = element_text(family = "rale"),
-        plot.title = element_text(face = "bold"))
+        plot.title = element_text(face = "bold"),
+        plot.caption = element_text(hjust = 0.5))
 
 # hire year (female ceos)
 ceos_df$hire_year <- substr(ceos_df$`hire date (female only)`,
