@@ -124,7 +124,6 @@ create_graph <- function(name) {
     pred_data <- fit_and_predict_inference_results |> filter(CEO == name) |>
       mutate(time = "Predicted")
     pred_data$Day <- as.numeric(as.character(pred_data$Day))
-    print(pred_data)
     
     avg_bef <- mean(com_bef$Value)
     avg_aft <- mean(com_aft$Value)
@@ -154,7 +153,11 @@ create_graph <- function(name) {
             plot.caption = element_markdown(hjust = 0.5))
 }
 
-create_graph("Karen S. Lynch")
+female_ceos <- companies |> filter(FemaleCEO == "yes") |> select(CEO) |> pull()
+
+for (i in female_ceos[45]) {
+  print(create_graph(i))
+}
 ```
 
 ```{r lilly-chart-remakes}
